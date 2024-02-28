@@ -1,0 +1,23 @@
+<!-- index.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Todo App</h1>
+<form action="/" method="post">
+    <input type="text" name="task" placeholder="New Task" required>
+    <button type="submit">Add Task</button>
+</form>
+<h2>Incomplete Tasks</h2>
+<ul>
+    {% for task in incomplete_tasks %}
+    <li>{{ task.task }} <a href="{{ url_for('complete', id=task.id) }}">Complete</a></li>
+    {% endfor %}
+</ul>
+<h2>Completed Tasks</h2>
+<ul>
+    {% for task in completed_tasks %}
+    <li>{{ task.task }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
