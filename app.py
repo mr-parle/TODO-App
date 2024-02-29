@@ -46,6 +46,7 @@ def create_db_tables():
     with app.app_context():
         db.create_all()
 
+
 if __name__ == '__main__':
     create_db_tables()  # Call the function to create the database tables
     app.run(debug=True)
